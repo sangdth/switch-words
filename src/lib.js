@@ -4,7 +4,7 @@
  * back and return a string;
  */
 export const switchWordsDefault = (string) => {
-  if (!string) return "";
+  if (!string || typeof string !== 'string') return "";
   // Words is array of all words from input string
   const words = string.trim().split(" ");
 
@@ -39,4 +39,4 @@ export const switchWordsDefault = (string) => {
  * except it tries to do it as short as possible.
  */
 // eslint-disable-next-line
-export const switchWordsMini = s => s.trim().split(" ").reduce((a, c, i, o) => (a.push((i + 1) % 2 === 0 ? o[i - 1].charAt(0) + c.substring(1, c.length) : o[i + 1] ? o[i + 1].charAt(0) + c.substring(1, c.length) : c), a), []).join(" ");
+export const switchWordsMini = s => (!s || typeof s !== 'string') ? '' : s.trim().split(" ").reduce((a, c, i, o) => (a.push((i + 1) % 2 === 0 ? o[i - 1].charAt(0) + c.substring(1, c.length) : o[i + 1] ? o[i + 1].charAt(0) + c.substring(1, c.length) : c), a), []).join(" ");
