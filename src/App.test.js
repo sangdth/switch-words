@@ -1,9 +1,14 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+// import React from 'react';
+// import { render } from '@testing-library/react';
+// import App from './App';
+import { switchWordsDefault, switchWordsMini } from "./lib";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("switchWordsDefault", () => {
+  expect(switchWordsDefault("Hello World")).toBe("Wello Horld");
+  expect(switchWordsDefault("who are you?")).toBe("aho wre you?");
+});
+
+test("switchWordsMini", () => {
+  expect(switchWordsMini("Hello World")).toBe("Wello Horld");
+  expect(switchWordsMini("who are you?")).toBe("aho wre you?");
 });
